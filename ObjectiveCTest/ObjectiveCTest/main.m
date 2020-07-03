@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
+#import "AnotherPerson.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -458,6 +460,29 @@ int main(int argc, const char * argv[]) {
          Excerpt From: Paul Hudson. “Objective-C for Swift Developers.” Apple Books. 
          
          */
+        
+        // MARK: - Classes
+        
+        Person *person = [Person new];
+        [person printGreeting];
+        [person printGreeting:@"Welcome!"];
+        [person printGreetingTo:@"Taylor!" atTimeOfDay:@"evening"];
+        
+        /*
+         
+         “In Swift, any file you create in you project is automatically built into your app’s namespace, which means a class you declare in file A is automatically available in file B. Not so in Objective-C: we need to #import the header file for Person.h to be able to use it in main.m.”
+
+         Excerpt From: Paul Hudson. “Objective-C for Swift Developers.” Apple Books.
+         
+         */
+        
+        // Manipulating a propery
+        person.name = @"Taylor";
+        [person printName];
+        
+        // Initializers
+        AnotherPerson *anotherPerson = [[AnotherPerson alloc] initWithName:@"James"];
+        [anotherPerson printGreeting];
         
     }
     
